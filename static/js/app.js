@@ -6,7 +6,7 @@ function buildMetadata(sample) {
     let sample_metadata = data.metadata;
 
     // Filter the metadata for the object with the desired sample number
-    let result = sample_metadata.filter(x => x.id === parseInt(sample))[0];
+    let result = sample_metadata.filter(x => x.id == sample)[0];
 
     // Use d3 to select the panel with id of `#sample-metadata`
     let panel = d3.select("#sample-metadata");
@@ -51,40 +51,42 @@ function buildCharts(sample) {
     };
 
     // // Render the Bubble Chart
-    let bubbleData = [bubbleTrace];
+    let bubbleData = [bubbleTrace]
 
     let bubbleLayout = {
+      plot_bgcolor: 'black',
+      paper_bgcolor: 'black',
       title: {
         text: "Bacterial Cultures Per Sample",
         font: {
           family: 'Arial',
           size: 24,
-          color: 'black'
+          color: 'white'
         }
       },
       showlegend: false,
       height: 600,
       width: 1200,
       xaxis: {
+        color: "white",
         title: {
           text: 'OTU ID',
           font: {
             family: 'Arial',
             size: 18,
-            color: 'black'
-          },
-          automargin: true
+            color: 'white'
+          }
         },
       },
       yaxis: {
+        color: "white",
         title: {
           text: 'Number of Bacteria',
           font: {
             family: 'Arial',
             size: 18,
-            color: 'black'
-          },
-          automargin: true
+            color: 'white'
+          }
         }
       }
     };
@@ -112,36 +114,37 @@ function buildCharts(sample) {
     let barData = [barTrace];
 
     let barLayout = {
+      plot_bgcolor: 'black',
+      paper_bgcolor: 'black',
       title: {
         text: "Top 10 Bacteria Cultures Found",
         font: {
           family: 'Arial',
           size: 24,
-          color: 'black'
-        },
-        xref: 'paper',
-        automargin: true
+          color: 'white'
+        }
       },
       xaxis: {
+        color: "white",
         title: {
           text: 'Number of Bacteria',
           font: {
             family: 'Arial',
             size: 18,
-            color: 'black'
+            color: 'white'
           },
           automargin: true
         },
       },
       yaxis: {
+        color: "white",
         title: {
           text: 'Operational Taxonomical Unit ID',
           font: {
             family: 'Arial',
             size: 18,
-            color: 'black'
-          },
-          automargin: true
+            color: 'white'
+          }
         }
       },
       margin: { // set margins to ensure y-label does not overlap with yticks
